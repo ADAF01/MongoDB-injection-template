@@ -50,7 +50,7 @@ It exposes both GET and POST endpoints for user “login” against a MongoDB co
    ```bash
    uv sync
    ```  
-   This will read `pyproject.toml` + `uv.lock` and install exactly those versions into a `.venv` citeturn7view0
+   This will read `pyproject.toml` + `uv.lock` and install exactly those versions into a `.venv`
 
 ---
 
@@ -70,7 +70,7 @@ It exposes both GET and POST endpoints for user “login” against a MongoDB co
 # start the Flask server in a uv-managed environment
 uv run python main.py
 ```
-The server will listen on `0.0.0.0:5000` (debug mode enabled). citeturn7view0
+The server will listen on `0.0.0.0:5000` (debug mode enabled).
 
 ---
 
