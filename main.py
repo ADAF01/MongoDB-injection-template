@@ -14,7 +14,7 @@ try:
     client.server_info()
     print(f"[INFO] Connected to MongoDB at {connection_uri}")
 except Exception as e:
-    raise RuntimeError(f"MongoDB 연결 실패: {e}")
+    raise RuntimeError(f"MongoDB Connect Fail: {e}")
 
 db = client["testdb"]
 users = db["users"]
