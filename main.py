@@ -6,7 +6,6 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-# MongoDB 연결 설정
 connection_uri = os.environ.get("ATLAS_URI", "mongodb://localhost:27017/")
 try:
     client = MongoClient(
@@ -21,7 +20,6 @@ db = client["testdb"]
 users = db["users"]
 
 
-# 시드 함수: 초기 사용자 데이터 삽입 (한 번만 실행)
 def seed_users():
     if users.count_documents({}) == 0:
         users.insert_many(
@@ -33,11 +31,9 @@ def seed_users():
         )
 
 
-# 안전한 필드 화이트리스트
 ALLOWED_FIELDS = {"username", "password"}
 
-
-# 입력값 검증 함수
+# Protect Injection func
 def sanitize_input(data: dict) -> dict:
     query = {}
     for key in ALLOWED_FIELDS:
@@ -47,7 +43,6 @@ def sanitize_input(data: dict) -> dict:
     return query
 
 
-# GET 방식 로그인 (NoSQL 인젝션 방어 포함)
 @app.route("/login", methods=["GET"])
 def login_get():
     query = request.args.to_dict(flat=True)
@@ -59,7 +54,6 @@ def login_get():
     return jsonify(result)
 
 
-# POST(JSON) 방식 로그인 (NoSQL 인젝션 방어 포함)
 @app.route("/login", methods=["POST"])
 def login_post():
     query = request.get_json(force=True)
@@ -73,7 +67,6 @@ def login_post():
     return jsonify(result)
 
 
-# HTML 폼 제공
 HTML = """
 <html>
   <body>
