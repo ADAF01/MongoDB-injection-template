@@ -34,17 +34,17 @@ It exposes both GET and POST endpoints for user “login” against a MongoDB co
    ```bash
    git clone https://github.com/ADAF01/MongoDB-injection-template.git  
    cd MongoDB-injection-template  
-   ``` citeturn1view0
+   ```
 
 2. **Install `uv`**  
    - **Standalone installer (macOS/Linux):**  
      ```bash
      curl -LsSf https://astral.sh/uv/install.sh | sh
-     ``` citeturn10view0  
+     ```
    - **Or via PyPI:**  
      ```bash
      pip install uv
-     ``` citeturn10view0
+     ```
 
 3. **Install project dependencies**  
    ```bash
